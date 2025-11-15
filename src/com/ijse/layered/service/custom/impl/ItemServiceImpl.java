@@ -5,6 +5,7 @@
 package com.ijse.layered.service.custom.impl;
 
 import com.ijse.layered.dto.ItemDto;
+import com.ijse.layered.entity.ItemEntity;
 import com.ijse.layered.service.custom.ItemService;
 import java.util.ArrayList;
 
@@ -16,11 +17,15 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public String saveItem(ItemDto itemDto) throws Exception {
+        ItemEntity entity = new ItemEntity(itemDto.getCode(), itemDto.getDesc(), itemDto.getPack(),
+                itemDto.getPrice(), itemDto.getQoh());
         return null;
     }
 
     @Override
     public String updateItem(ItemDto itemDto) throws Exception {
+        ItemEntity entity = new ItemEntity(itemDto.getCode(), itemDto.getDesc(), itemDto.getPack(),
+                itemDto.getPrice(), itemDto.getQoh());
         return null;
     }
 
@@ -31,12 +36,26 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public ItemDto searchItem(String code) throws Exception {
+        ItemEntity entity = null;
+        if(entity != null){
+            return new ItemDto(entity.getCode(), entity.getDesc(), entity.getPack(),
+                    entity.getPrice(), entity.getQoh());
+        }
         return null;
     }
 
     @Override
     public ArrayList<ItemDto> getAll() throws Exception {
-        return null;
+        ArrayList<ItemDto> dtos = new ArrayList<>();
+        ArrayList<ItemEntity> itemEntities = null;
+        
+        for (ItemEntity entity : itemEntities) {
+            ItemDto dto = new ItemDto(entity.getCode(), entity.getDesc(), entity.getPack(),
+                    entity.getPrice(), entity.getQoh());
+            dtos.add(dto);
+        }
+        
+        return dtos;
     }
     
 }

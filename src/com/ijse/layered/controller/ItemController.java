@@ -5,6 +5,8 @@
 package com.ijse.layered.controller;
 
 import com.ijse.layered.dto.ItemDto;
+import com.ijse.layered.service.ServiceFactory;
+import com.ijse.layered.service.custom.ItemService;
 import java.util.ArrayList;
 
 /**
@@ -13,16 +15,18 @@ import java.util.ArrayList;
  */
 public class ItemController {
     
+    private ItemService itemService = (ItemService) ServiceFactory.getInstance().getService(ServiceFactory.ServiceTypes.ITEM);
+    
     public String saveItem(ItemDto itemDto) throws Exception{
-        return null;
+        return itemService.saveItem(itemDto);
     }
     
     public ArrayList<ItemDto> getAll() throws Exception{
-        return null;
+        return itemService.getAll();
     }
     
     public ItemDto searchItem(String code) throws Exception{
-        return null;
+        return itemService.searchItem(code);
     }
     
 }
