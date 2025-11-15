@@ -4,6 +4,8 @@
  */
 package com.ijse.layered;
 
+import com.ijse.layered.view.ItemView;
+
 /**
  *
  * @author Anjana
@@ -14,7 +16,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new ItemView().setVisible(true);
     }
     
 }
