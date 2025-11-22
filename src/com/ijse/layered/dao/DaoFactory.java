@@ -6,6 +6,8 @@ package com.ijse.layered.dao;
 
 import com.ijse.layered.dao.custom.impl.CustomerDaoImpl;
 import com.ijse.layered.dao.custom.impl.ItemDaoImpl;
+import com.ijse.layered.dao.custom.impl.OrderDaoImpl;
+import com.ijse.layered.dao.custom.impl.OrderDetailDaoImpl;
 
 /**
  *
@@ -33,9 +35,9 @@ public class DaoFactory {
             case CUSTOMER:
                 return new CustomerDaoImpl();
             case ORDER:
-                return null;
+                return new OrderDaoImpl();
             case ORDER_DETAIL:
-                return null;
+                return new OrderDetailDaoImpl();
             default:
                 throw new AssertionError();
         }
