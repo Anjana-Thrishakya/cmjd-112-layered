@@ -6,6 +6,7 @@ package com.ijse.layered.view;
 
 import com.ijse.layered.controller.CustomerController;
 import com.ijse.layered.controller.ItemController;
+import com.ijse.layered.controller.OrderController;
 import com.ijse.layered.dto.CustomerDto;
 import com.ijse.layered.dto.ItemDto;
 import com.ijse.layered.dto.OrderDetailDto;
@@ -24,6 +25,8 @@ public class OrderView extends javax.swing.JFrame {
 
     private CustomerController customerController = new CustomerController();
     private ItemController itemController = new ItemController();
+    private OrderController orderController = new OrderController();
+    
     private ArrayList<OrderDetailDto> orderDetailDtos = new ArrayList<>();
 
     public OrderView() throws Exception {
@@ -338,11 +341,11 @@ public class OrderView extends javax.swing.JFrame {
        
         OrderDto orderDto = new OrderDto(txtOId.getText(), dateString, txtCid.getText(), orderDetailDtos);
         
-//        try {
-//            String resp = orderController.placeOrder(orderDto, orderDetailDtos);
-//            JOptionPane.showMessageDialog(this, resp);
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(this, e.getMessage());
-//        }
+        try {
+            String resp = orderController.placeOrder(orderDto);
+            JOptionPane.showMessageDialog(this, resp);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }
 }
