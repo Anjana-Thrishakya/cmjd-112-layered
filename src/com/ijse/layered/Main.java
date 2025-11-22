@@ -4,6 +4,7 @@
  */
 package com.ijse.layered;
 
+import com.ijse.layered.view.CustomerView;
 import com.ijse.layered.view.ItemView;
 
 /**
@@ -15,8 +16,8 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        new ItemView().setVisible(true);
+    public static void main(String[] args) throws Exception {
+        new CustomerView().setVisible(true);
     }
     
 }
